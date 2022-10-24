@@ -1,6 +1,6 @@
 <?php
 
-class AktieOnDate
+class _unused_Share
 {
     private \DateTime $dateTime;
     private float $low;
