@@ -44,7 +44,7 @@ class ShareCollection
      */
     public function printShareDataCount()
     {
-        print_r("Amount data-rows: " . count($this->shareDataArray) . "\n");
+        print_r("Amount entries (rows): " . count($this->shareDataArray) . "\n");
     }
 
     /**
@@ -96,7 +96,7 @@ class ShareCollection
     /**
      * @return array
      */
-    public function getDatesWithIncompleteData(): array
+    public function getDatesWithWrongAmountShares(): array
     {
         $datesWithIncompleteData = [];
 
@@ -148,8 +148,11 @@ class ShareCollection
     /**
      * @param array $faultyDates
      */
-    public function deleteDatesFromDataSet(array $faultyDates)
+    public function deleteDatesFromDataSet(array $faultyDates): int
     {
+        if (count($faultyDates) === 0) {
+            return 0;
+        }
         // Count deleted rows to double-check
         $deletedRowsCount = 0;
         print_r("Delting faulty entries...\n");
@@ -165,6 +168,7 @@ class ShareCollection
 
         }
         print_r("Deleted entries (rows): " . $deletedRowsCount . "\n");
+        return $deletedRowsCount;
     }
 
     /**
