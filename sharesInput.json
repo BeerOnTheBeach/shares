@@ -1,0 +1,24 @@
+{
+  "shares": [
+    {
+      "symbol": "ABC" ,
+      "bought": "01-01-2022",
+      "sold": ""
+    },
+    {
+      "symbol": "DEF" ,
+      "bought": "01-02-2022",
+      "sold": ""
+    },
+    {
+      "symbol": "HIK" ,
+      "bought": "01-03-2022",
+      "sold": ""
+    },
+    {
+      "symbol": "LMO" ,
+      "bought": "01-04-2022",
+      "sold": ""
+    }
+  ]
+}

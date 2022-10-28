@@ -1,6 +1,6 @@
 <?php
 
-class ShareCollection
+class _ShareCollection
 {
     /**
      * @var array
@@ -54,7 +54,7 @@ class ShareCollection
      * @param array $faultyValues
      * @return array
      */
-    public function getDatesWithFaultyValues(array $faultyValues = ["NaN", "inf"]): array
+    public function getDatesWithFaultyValues(array $faultyValues = ["NaN", "inf", ""]): array
     {
         $shares2d = $this->create2dArray();
         $faultyDates = [];
@@ -109,7 +109,7 @@ class ShareCollection
 
         print_r("Finding dates with incomplete data... \n");
         foreach ($shares2d as $date => $sharesOnDates) {
-            if (count($sharesOnDates) < count($sharesOnDateBefore) && !empty($sharesOnDateBefore)) {
+            if ($this->percentDifferenceBiggerThan($sharesOnDates, $sharesOnDateBefore) && !empty($sharesOnDateBefore)) {
                 print_r("Date[$date]: Amount[" . $this->getFormattedCount($sharesOnDates) . "] <---> " );
                 print_r("Date[$dateBefore]: Amount[" . $this->getFormattedCount($sharesOnDateBefore) . "]"
                     . " --> Diff[" . count($sharesOnDateBefore) - count($sharesOnDates) .  "]\n");
@@ -206,6 +206,14 @@ class ShareCollection
     private function getFormattedCount(array $array): string
     {
         return str_pad(count($array), 2, '0', STR_PAD_LEFT);
+    }
+
+    private function percentDifferenceBiggerThan($sharesOnDates, $sharesOnDateBefore, $percent = 0.1)
+    {
+        (int)$percentDateBefore = count($sharesOnDateBefore) * $percent;
+        $diffCurrentDate = count($sharesOnDateBefore) - count($sharesOnDates) ;
+
+        return $diffCurrentDate > $percentDateBefore ;
     }
 
 

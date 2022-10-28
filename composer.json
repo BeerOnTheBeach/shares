@@ -1,0 +1,16 @@
+{
+    "name": "gero/shares",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "BotB\\Shares\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Geronimo Pröbster",
+            "email": "gerproe@googlemail.com"
+        }
+    ],
+    "require": {}
+}
