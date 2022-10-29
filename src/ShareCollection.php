@@ -50,7 +50,7 @@ class ShareCollection
             $historicData = $this->marketstack->getHistoricData($symbol, $from, $to);
         }
         die;
-        $response =
+        $response = "";
 
     }
 }
