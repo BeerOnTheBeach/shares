@@ -78,9 +78,9 @@ class Marketstack
         return $parameterString;
     }
 
-    public function getHistoricData($symbol, $from, $to)
+    public function getHistoricData($symbol, $from, $to = new DateTime('now'))
     {
         // TODO: Implement request, see post()
-        return json_decode(file_get_contents("demoEodData.json"));
+        return json_decode(file_get_contents("demoEodData.json"), true);
     }
 }
