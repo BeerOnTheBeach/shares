@@ -12,5 +12,7 @@
             "email": "gerproe@googlemail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "vlucas/phpdotenv": "^5.5"
+    }
 }

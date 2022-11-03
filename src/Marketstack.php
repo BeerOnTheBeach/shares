@@ -2,9 +2,7 @@
 
 namespace BotB\Shares;
 
-use Cassandra\Date;
 use DateTime;
-use http\Client\Response;
 
 class Marketstack
 {
@@ -15,12 +13,8 @@ class Marketstack
 
     public function __construct()
     {
-        // TODO: Find out why envs are empty
         $this->apiKey = getenv("MARKETSTACK_API_KEY");
         $this->apiBaseUrl = getenv("MARKETSTACK_API_BASE_URL");
-
-//        $this->apiKey = self::MARKETSTACK_API_KEY;
-//        $this->apiBaseUrl = self::MARKETSTACK_API_BASE_URL;
     }
 
     public function getSharesBySymbols(
@@ -63,6 +57,8 @@ class Marketstack
         if (!empty($parameter)) {
             $requestUrl .= $this->parameterToUrl($parameter);
         }
+
+
 
         // TODO: Guzzle/Client/Curl here, return response.
         // Return demo-json from marketstack.com/documentation for now

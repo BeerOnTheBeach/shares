@@ -48,6 +48,11 @@ sold them.
 }
 ````
 
+Install dependencies / create autoload file
+````shell
+composer install 
+````
+
 Run the index.php file and get a CSV-file.
 
 ````shell
